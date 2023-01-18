@@ -29,33 +29,41 @@ class GfG
 
 class Solution
 {
+    ////////////  Using Binary Search    ////////////////
     static int find_height(int tree[], int n, int k)
     {
-        //Highest Tree From the Array
-        int high=0;
-        for(int i=0;i<tree.length;i++){
-            if(tree[i]>high){
-                high=tree[i];
-            }
-        }
         
+        //// It finds the Highest Tree From Array
+        Arrays.sort(tree);
+        int start=0;
+        int end=tree[n-1];
+        // for(int j=0;j<tree.length;j++){
+        //     if(tree[j]>end){
+        //         end=tree[j];
+        // }
         
-        //// Machine will Check Its Height if Height Set to the Total-Collection(k) of Wood
-        for(int machine_height=0;machine_height<high;machine_height++){
-            int wood_collection=0;
-            
-            ////Height of tree will cut => if tree height is greater than Machine-height
-            for(int tre=0;tre<n;tre++){
-                if(machine_height<tree[tre]){
-                    wood_collection+=tree[tre]-machine_height;
+        while(start<=end){
+            int machine_Height=(start+end)/2;  /////   (Binary Search)
+                
+///// It will Collect the Woods                
+                int wood_collection=0;
+                for(int i=0;i<tree.length;i++){
+                    if(machine_Height<tree[i]){
+                        wood_collection+=tree[i]-machine_Height;
+                    }
                 }
-            }
-            
-            //// Wood collection to that height is same than the Machine Height is Accurate There..
-            if(wood_collection==k){
-                return machine_height;
-            }
+
+
+////// This will check the Machine_Height Acc to Wood Required
+                if(wood_collection==k){
+                    return machine_Height;
+                }else if(wood_collection>k){
+                    start=machine_Height+1;
+                }else{
+                    end=machine_Height-1;
+                }
+                
         }
-        return -1;
+    return -1;
     }
 }
