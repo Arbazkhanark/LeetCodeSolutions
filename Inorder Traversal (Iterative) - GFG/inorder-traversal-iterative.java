@@ -129,7 +129,6 @@ class Solution
                 curr=stack.pop();
                 ans.add(curr.data);
                 curr=curr.right;
-		    
         }
         return ans;
     }
