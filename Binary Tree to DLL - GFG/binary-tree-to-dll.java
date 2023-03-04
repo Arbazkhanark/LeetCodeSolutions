@@ -157,7 +157,7 @@ class Solution
 	    
 	   bToDLL(root.left);
 	    if(prev==null){
-	        head=root;
+	        head=prev=root;
 	    }else{
 	        prev.right=root;
 	        root.left=prev;
