@@ -113,6 +113,6 @@ class Solution {
            curr.right = insert(curr.right,key);  //curr=curr.right
         }
         
-        return curr;
+        return root;
     }
 }
