@@ -63,14 +63,18 @@ class BST {
         // Node curr=root;
         
         if(root==null)return false;
-        if(root.data==x)return true;
-        
-        if(root.data<x){
-            // Going to Right...
-            return search(root.right,x);
+        // if(root.data==x)return true;
+
+        while(root!=null){
+            if(root.data==x){
+                return true;
+            }else if(root.data<x){
+                root=root.right;
+            }else if(root.data>x){
+                root=root.left;
+            }
         }
         
-        // Go to Left....
-        return search(root.left,x);
+        return false;
     }
 }
