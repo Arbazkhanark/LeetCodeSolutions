@@ -31,9 +31,8 @@ class Main {
 
 class Solution {
     int sum(int arr[], int n) {
-    //   /if(n==0)return 0;
-    if(n<1)return 0;
+      if(n==0)return 0;     // if(n<1)return 0;
         int len=n-1;
-        return arr[n-1]+(sum(arr,n-1));
+        return arr[len]+(sum(arr,n-1));
     }
 }
