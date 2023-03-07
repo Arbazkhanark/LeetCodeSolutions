@@ -70,7 +70,7 @@ class Solution
         long ans= (power(n,r/2))%MOD;  //22^11
         ans=(ans*ans)%MOD;
         if(r%2==0){
-            return (ans)%MOD;   //(22^11)+(22^11)==22^22
+            return (ans)%MOD;   //(22^11)*(22^11)==22^22
         }else{ 
             return (ans*n)%MOD;  //12^10 +1
         }
