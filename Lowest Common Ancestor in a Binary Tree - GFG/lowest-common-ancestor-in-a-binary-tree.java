@@ -122,20 +122,35 @@ class Node
 class Solution
 {
     //Function to return the lowest common ancestor in a Binary Tree.
-	Node lca(Node root, int n1,int n2){
+	Node lca(Node root, int a,int b){
 	    
-	    if(root==null)return null;
-	    if(root.data==n1 || root.data==n2)return root;
+	   // if(root==null)return null;
+	   // if(root.data==n1 || root.data==n2)return root;
 	    
-	    
-	   // if(lca(root.left,n1,n2)!=null && lca(root.right,n1,n2)!=null){
-        else if(lca(root.left,n1,n2)==null){
-	        return lca(root.right,n1,n2);
-	    }else if(lca(root.right,n1,n2)==null){
-	        return lca(root.left,n1,n2);
-	    }else{
-	        return root;
-	    }
+    //     else if(lca(root.left,n1,n2)==null){
+	   //     return lca(root.right,n1,n2);
+	   // }else if(lca(root.right,n1,n2)==null){
+	   //     return lca(root.left,n1,n2);
+	   // }else{
+	   //     return root;
+	   // }
+	   
+	   
+	   
+	   if(root==null)return null;
+        if(root.data==a ||root.data==b)return root;
+        
+        Node left=lca(root.left,a,b);
+        Node right=lca(root.right,a,b);
+        
+        if(left!=null && right!=null)return root;
+        else if(left==null){
+            return right;
+        }else if(right==null){
+            return left;
+        }else{
+            return null;
+        }
 	    
 	}
 }
