@@ -45,11 +45,11 @@ class Solution
     
     public void printNos(int n){
         
-        if(n>0){
+        if(n>1){
             // System.out.print(n+" ");    // Reverse Printing
             printNos(n-1);
-            System.out.print(n+" ");    // Normal Printing
         }
+            System.out.print(n+" ");    // Normal Printing
     }
 }
 
