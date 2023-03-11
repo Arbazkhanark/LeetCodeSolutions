@@ -132,21 +132,6 @@ class Solution
             }
         }
         
-        
-        // for(int i=0;i<ans.size();i++){
-        //     if(!map.isEmpty()){
-        //         int value=target-map.get(i);
-        //         map.put(ans.get(i),i);
-        //         if(map.containsKey(value)){
-        //             return 1;
-        //         } 
-        //     }
-            
-        //     if(map.isEmpty()){
-        //         map.put(ans.get(i),i);
-        //     }
-            
-        // }
         return 0;
         
         
