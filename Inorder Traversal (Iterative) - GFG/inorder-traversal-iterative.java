@@ -111,25 +111,36 @@ class Node {
         left = right = null;
     }
 } */
-class Solution
-{
+class Solution{
+    
     // Return a list containing the inorder traversal of the given tree
-    ArrayList<Integer> inOrder(Node root)
-    {
-        Stack<Node> stack=new Stack<>();
+    ArrayList<Integer> inOrder(Node root){
         ArrayList<Integer> ans=new ArrayList<>();
+        if(root==null)return ans;
         
-        // if(root==null)return ans;
         Node curr=root;
-        while(!stack.isEmpty() || curr!=null){
-            while(curr!=null)	{
-                stack.push(curr);
-                curr=curr.left;	
-		    }	
-                curr=stack.pop();
+        Node predecessor=null;
+        while(curr!=null){
+            if(curr.left!=null){
+                predecessor=curr.left;
+                while(predecessor.right!=null && predecessor.right!=curr){
+                    predecessor=predecessor.right;
+                }
+                
+                    if(predecessor.right==null){
+                        predecessor.right=curr;
+                        curr=curr.left;
+                    }else if(predecessor.right!=null){
+                        predecessor.right=null;
+                        ans.add(curr.data);
+                        curr=curr.right;
+                    }
+            }else{
                 ans.add(curr.data);
                 curr=curr.right;
+            }
         }
+        
         return ans;
     }
     
